@@ -53,7 +53,7 @@ The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, B
 
 
 ## Images
-![Telegram Airdrop Bot](https://i.imgur.com/BGAH9af.jpg)
+![Telegram Airdrop Bot](https://i.imgur.com/00kB4AI.jpg)
 
 ## How can I help?
 All kinds of contributions are welcome!
