@@ -68,13 +68,13 @@ def handle_text(message):
             sql = "INSERT INTO users(user_id) VALUES (%s)"
             cursor.execute(sql, message.chat.id)
         if message.chat.id in airdrop_users:
-            bot.send_message(message.chat.id, config.texts['start_2'].format(message.from_user.first_name), parse_mode='Markdown', reply_markup=airdropkeyboard)
+            bot.send_message(message.chat.id, config.texts['start_2'].format(message.from_user.first_name) + "The source code of this bot can be found [here](https://github.com/TheDevFab/Telegram-Airdrop-Bot).", parse_mode='Markdown', disable_web_page_preview=True, reply_markup=airdropkeyboard)
         elif not config.airdrop_live:
-            bot.send_message(message.chat.id, config.texts['airdrop_start'], parse_mode='Markdown')
+            bot.send_message(message.chat.id, config.texts['airdrop_start'] + "The source code of this bot can be found [here](https://github.com/TheDevFab/Telegram-Airdrop-Bot).", parse_mode='Markdown', disable_web_page_preview=True)
         elif len(airdrop_users) >= config.airdrop_cap:
-            bot.send_message(message.chat.id, config.texts['airdrop_max_cap'], parse_mode='Markdown')
+            bot.send_message(message.chat.id, config.texts['airdrop_max_cap'] + "The source code of this bot can be found [here](https://github.com/TheDevFab/Telegram-Airdrop-Bot).", parse_mode='Markdown', disable_web_page_preview=True)
         else:
-            bot.send_message(message.chat.id, config.texts['start_1'].format(message.from_user.first_name), parse_mode='Markdown', reply_markup=defaultkeyboard)
+            bot.send_message(message.chat.id, config.texts['start_1'].format(message.from_user.first_name) + "The source code of this bot can be found [here](https://github.com/TheDevFab/Telegram-Airdrop-Bot).", parse_mode='Markdown', disable_web_page_preview=True, reply_markup=defaultkeyboard)
                 
 @bot.message_handler(func=lambda message: message.chat.type == 'private' and message.from_user.id not in airdrop_users and message.text == '🚀 Join Airdrop')
 def handle_text(message):
