@@ -1,13 +1,13 @@
-<p align="center"><a href="https://github.com/TheDevFab/Telegram-Airdrop-Bot" target="_blank"><img src="https://i.imgur.com/nYqDUX0.png"></a></p>
+<p align="center"><a href="https://github.com/vsnz/Telegram-Airdrop-Bot" target="_blank"><img src="https://i.imgur.com/nYqDUX0.png"></a></p>
 
 <p align="center">
     <a href="https://www.python.org/downloads/release/python-380/"><img src="https://img.shields.io/badge/python-3.8-blue.svg?style=plastic" alt="Python version"></a>
-    <a href="https://github.com/TheDevFab/Telegram-Airdrop-Bot/blob/master/LICENSE"><img src="https://img.shields.io/github/license/TheDevFab/Telegram-Airdrop-Bot?style=plastic" alt="GitHub license"></a>
-    <a href="https://github.com/TheDevFab/Telegram-Airdrop-Bot/issues"><img src="https://img.shields.io/github/issues/TheDevFab/Telegram-Airdrop-Bot?style=plastic" alt="GitHub issues"></a>
-    <a href="https://github.com/TheDevFab/Telegram-Airdrop-Bot/pulls"><img src="https://img.shields.io/github/issues-pr/TheDevFab/Telegram-Airdrop-Bot?style=plastic" alt="GitHub pull requests"></a>
-    <br /><a href="https://github.com/TheDevFab/Telegram-Airdrop-Bot/stargazers"><img src="https://img.shields.io/github/stars/TheDevFab/Telegram-Airdrop-Bot?style=social" alt="GitHub stars"></a>
-    <a href="https://github.com/TheDevFab/Telegram-Airdrop-Bot/network/members"><img src="https://img.shields.io/github/forks/TheDevFab/Telegram-Airdrop-Bot?style=social" alt="GitHub forks"></a>
-    <a href="https://github.com/TheDevFab/Telegram-Airdrop-Bot/watchers"><img src="https://img.shields.io/github/watchers/TheDevFab/Telegram-Airdrop-Bot?style=social" alt="GitHub watchers"></a>
+    <a href="https://github.com/vsnz/Telegram-Airdrop-Bot/blob/master/LICENSE"><img src="https://img.shields.io/github/license/vsnz/Telegram-Airdrop-Bot?style=plastic" alt="GitHub license"></a>
+    <a href="https://github.com/vsnz/Telegram-Airdrop-Bot/issues"><img src="https://img.shields.io/github/issues/vsnz/Telegram-Airdrop-Bot?style=plastic" alt="GitHub issues"></a>
+    <a href="https://github.com/vsnz/Telegram-Airdrop-Bot/pulls"><img src="https://img.shields.io/github/issues-pr/vsnz/Telegram-Airdrop-Bot?style=plastic" alt="GitHub pull requests"></a>
+    <br /><a href="https://github.com/vsnz/Telegram-Airdrop-Bot/stargazers"><img src="https://img.shields.io/github/stars/vsnz/Telegram-Airdrop-Bot?style=social" alt="GitHub stars"></a>
+    <a href="https://github.com/vsnz/Telegram-Airdrop-Bot/network/members"><img src="https://img.shields.io/github/forks/vsnz/Telegram-Airdrop-Bot?style=social" alt="GitHub forks"></a>
+    <a href="https://github.com/vsnz/Telegram-Airdrop-Bot/watchers"><img src="https://img.shields.io/github/watchers/vsnz/Telegram-Airdrop-Bot?style=social" alt="GitHub watchers"></a>
 </p>
 
 <p align="center">
@@ -34,7 +34,7 @@ The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, B
 - Enable / disable the airdrop
 - Admins can export the airdrop list by command (`/airdroplist`)
 
-> 💡 Got a feature idea? Open an [issue](https://github.com/TheDevFab/Telegram-Airdrop-Bot/issues/new) and I might implement it.
+> 💡 Got a feature idea? Open an [issue](https://github.com/vsnz/Telegram-Airdrop-Bot/issues/new) and I might implement it.
 
 
 ## Installation
@@ -44,11 +44,11 @@ The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, B
    1. `CREATE USER 'abuser'@'localhost' IDENTIFIED BY 'your-password';`
    1. `GRANT ALL PRIVILEGES ON TelegramAirdropBot . * TO 'abuser'@'localhost';`
    1. `exit;`
-1. Clone this repository `git clone https://github.com/TheDevFab/Telegram-Airdrop-Bot.git`
+1. Clone this repository `git clone https://github.com/vsnz/Telegram-Airdrop-Bot.git`
 1. Create your virtual environment `python3 -m venv Telegram-Airdrop-Bot`
 1. Activate it `source Telegram-Airdrop-Bot/bin/activate && cd Telegram-Airdrop-Bot`
 1. Install all requirements `pip install -r requirements.txt`
-1. Edit and update [`config.py`](https://github.com/TheDevFab/Telegram-Airdrop-Bot/blob/master/config.py)
+1. Edit and update [`config.py`](https://github.com/vsnz/Telegram-Airdrop-Bot/blob/master/config.py)
 1. Run the bot `python main.py`
 
 
@@ -57,4 +57,4 @@ The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, B
 
 ## How can I help?
 All kinds of contributions are welcome!
-The most basic way to show your support is to `⭐️star` the project, or to raise [`🐞issues`](https://github.com/TheDevFab/Telegram-Airdrop-Bot/issues/new).
+The most basic way to show your support is to `⭐️star` the project, or to raise [`🐞issues`](https://github.com/vsnz/Telegram-Airdrop-Bot/issues/new).

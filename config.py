@@ -1,6 +1,6 @@
 # --------------------------------------------- #
 # Plugin Name           : TelegramAirdropBot    #
-# Author Name           : TheDevFab             #
+# Author Name           : vsnz                  #
 # File Name             : config.py             #
 # --------------------------------------------- #
 
