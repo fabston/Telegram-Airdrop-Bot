@@ -1,6 +1,6 @@
 # --------------------------------------------- #
 # Plugin Name           : TelegramAirdropBot    #
-# Author Name           : vsnz                  #
+# Author Name           : fabston               #
 # File Name             : config.py             #
 # --------------------------------------------- #
 
@@ -8,16 +8,16 @@
 airdrop_live = True
 
 # Telegram
-token           = '<YOUR BOT TOKEN>'        # More: https://core.telegram.org/bots#3-how-do-i-create-a-bot
-log_channel     = 0                         # Channel ID. Example: -1001355597767
-admins          = []                        # Telegram User ID's. Admins are able to execute command "/airdroplist"
-airdrop_cap     = 100                       # Max airdrop submissions that are being accepted
+token = '<YOUR BOT TOKEN>'  # More: https://core.telegram.org/bots#3-how-do-i-create-a-bot
+log_channel = 0  # Channel ID. Example: -1001355597767
+admins = []  # Telegram User ID's. Admins are able to execute command "/airdroplist"
+airdrop_cap = 100  # Max airdrop submissions that are being accepted
 
 # MySQL Database
 mysql_host = 'localhost'
-mysql_db   = 'TelegramAirdropBot'
+mysql_db = 'TelegramAirdropBot'
 mysql_user = 'abuser'
-mysql_pw   = '<YOUR PASSWORD>'
+mysql_pw = '<YOUR PASSWORD>'
 
 texts = {
     'start_1': 'Hi {} and welcome to our Airdrop!\n\nGet started by clicking the button below.\n\n',

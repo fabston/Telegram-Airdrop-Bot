@@ -1,11 +1,11 @@
 # --------------------------------------------- #
 # Plugin Name           : TelegramAirdropBot    #
-# Author Name           : vsnz                  #
+# Author Name           : fabston               #
 # File Name             : main.py               #
 # --------------------------------------------- #
 
 import config
-import pymysql 
+import pymysql
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 from telebot import types
@@ -14,7 +14,8 @@ from io import BytesIO
 from time import gmtime, strftime
 
 bot = telebot.TeleBot(config.token)
-        
+
+
 def get_connection():
     connection = pymysql.connect(host=config.mysql_host,
                                  user=config.mysql_user,
@@ -24,6 +25,7 @@ def get_connection():
                                  cursorclass=pymysql.cursors.DictCursor,
                                  autocommit=True)
     return connection
+
 
 def get_airdrop_wallets():
     connection = get_connection()
@@ -35,6 +37,7 @@ def get_airdrop_wallets():
             tmp.append(user['address'])
         return tmp
 
+
 def get_airdrop_users():
     connection = get_connection()
     with connection.cursor() as cursor:
@@ -45,16 +48,19 @@ def get_airdrop_users():
             tmp.append(user['user_id'])
         return tmp
 
+
 defaultkeyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
 defaultkeyboard.row(types.KeyboardButton('🚀 Join Airdrop'))
 
 airdropkeyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
 airdropkeyboard.row(types.KeyboardButton('💼 View Wallet Address'))
 
+
 def cancel_button():
     markup = InlineKeyboardMarkup()
     markup.add(InlineKeyboardButton('Cancel Operation', callback_data='cancel_input'))
     return markup
+
 
 @bot.message_handler(func=lambda message: message.chat.type == 'private', commands=['start'])
 def handle_text(message):
@@ -68,19 +74,30 @@ def handle_text(message):
             sql = "INSERT INTO users(user_id) VALUES (%s)"
             cursor.execute(sql, message.chat.id)
         if message.chat.id in airdrop_users:
-            bot.send_message(message.chat.id, config.texts['start_2'].format(message.from_user.first_name) + "[» Source Code](https://github.com/vsnz/Telegram-Airdrop-Bot).", parse_mode='Markdown', disable_web_page_preview=True, reply_markup=airdropkeyboard)
+            bot.send_message(message.chat.id, config.texts['start_2'].format(
+                message.from_user.first_name) + "[» Source Code](https://github.com/vsnz/Telegram-Airdrop-Bot).",
+                             parse_mode='Markdown', disable_web_page_preview=True, reply_markup=airdropkeyboard)
         elif not config.airdrop_live:
-            bot.send_message(message.chat.id, config.texts['airdrop_start'] + "[» Source Code](https://github.com/vsnz/Telegram-Airdrop-Bot).", parse_mode='Markdown', disable_web_page_preview=True)
+            bot.send_message(message.chat.id, config.texts[
+                'airdrop_start'] + "[» Source Code](https://github.com/vsnz/Telegram-Airdrop-Bot).",
+                             parse_mode='Markdown', disable_web_page_preview=True)
         elif len(airdrop_users) >= config.airdrop_cap:
-            bot.send_message(message.chat.id, config.texts['airdrop_max_cap'] + "[» Source Code](https://github.com/vsnz/Telegram-Airdrop-Bot).", parse_mode='Markdown', disable_web_page_preview=True)
+            bot.send_message(message.chat.id, config.texts[
+                'airdrop_max_cap'] + "[» Source Code](https://github.com/vsnz/Telegram-Airdrop-Bot).",
+                             parse_mode='Markdown', disable_web_page_preview=True)
         else:
-            bot.send_message(message.chat.id, config.texts['start_1'].format(message.from_user.first_name) + "[» Source Code](https://github.com/vsnz/Telegram-Airdrop-Bot).", parse_mode='Markdown', disable_web_page_preview=True, reply_markup=defaultkeyboard)
-                
-@bot.message_handler(func=lambda message: message.chat.type == 'private' and message.from_user.id not in airdrop_users and message.text == '🚀 Join Airdrop')
+            bot.send_message(message.chat.id, config.texts['start_1'].format(
+                message.from_user.first_name) + "[» Source Code](https://github.com/vsnz/Telegram-Airdrop-Bot).",
+                             parse_mode='Markdown', disable_web_page_preview=True, reply_markup=defaultkeyboard)
+
+
+@bot.message_handler(func=lambda
+        message: message.chat.type == 'private' and message.from_user.id not in airdrop_users and message.text == '🚀 Join Airdrop')
 def handle_text(message):
     bot.send_chat_action(message.chat.id, 'typing')
     if not config.airdrop_live:
-         bot.send_message(message.chat.id, config.texts['airdrop_start'], parse_mode='Markdown', disable_web_page_preview=True)
+        bot.send_message(message.chat.id, config.texts['airdrop_start'], parse_mode='Markdown',
+                         disable_web_page_preview=True)
     else:
         connection = get_connection()
         with connection.cursor() as cursor:
@@ -91,19 +108,26 @@ def handle_text(message):
             cursor.execute(sqlTotal)
             dataTotal = cursor.fetchone()
             if len(airdrop_users) >= config.airdrop_cap:
-                bot.send_message(message.chat.id, config.texts['airdrop_max_cap'], parse_mode='Markdown', reply_markup=telebot.types.ReplyKeyboardRemove())
+                bot.send_message(message.chat.id, config.texts['airdrop_max_cap'], parse_mode='Markdown',
+                                 reply_markup=telebot.types.ReplyKeyboardRemove())
             else:
-                bot.send_message(message.chat.id, config.texts['airdrop_address'], parse_mode='Markdown', disable_web_page_preview=True, reply_markup=telebot.types.ReplyKeyboardRemove())
+                bot.send_message(message.chat.id, config.texts['airdrop_address'], parse_mode='Markdown',
+                                 disable_web_page_preview=True, reply_markup=telebot.types.ReplyKeyboardRemove())
                 bot.register_next_step_handler(message, address_check)
 
-@bot.message_handler(func=lambda message: message.chat.type == 'private' and message.from_user.id in airdrop_users and message.text == '💼 View Wallet Address')
+
+@bot.message_handler(func=lambda
+        message: message.chat.type == 'private' and message.from_user.id in airdrop_users and message.text == '💼 View Wallet Address')
 def handle_text(message):
     connection = get_connection()
     with connection.cursor() as cursor:
         sql = "SELECT address FROM users WHERE user_id = %s"
         cursor.execute(sql, message.chat.id)
         data = cursor.fetchall()
-        bot.send_message(message.chat.id, text='Your tokens will be sent to:\n\n[{0}](https://etherscan.io/address/{0})'.format(data[0]['address']), parse_mode='Markdown', disable_web_page_preview=True)
+        bot.send_message(message.chat.id,
+                         text='Your tokens will be sent to:\n\n[{0}](https://etherscan.io/address/{0})'.format(
+                             data[0]['address']), parse_mode='Markdown', disable_web_page_preview=True)
+
 
 def address_check(message):
     bot.send_chat_action(message.chat.id, 'typing')
@@ -113,25 +137,31 @@ def address_check(message):
             bot.send_message(message.chat.id, config.texts['airdrop_max_cap'], parse_mode='Markdown')
             bot.clear_step_handler(message)
         elif message.text in airdrop_wallets:
-            msg = bot.reply_to(message, config.texts['airdrop_walletused'], parse_mode='Markdown', reply_markup=cancel_button())
+            msg = bot.reply_to(message, config.texts['airdrop_walletused'], parse_mode='Markdown',
+                               reply_markup=cancel_button())
             bot.register_next_step_handler(msg, address_check)
         elif eth_utils.is_address(message.text):
             sql = "UPDATE users SET address = %s WHERE user_id = %s"
             cursor.execute(sql, (message.text, message.chat.id))
-            bot.reply_to(message, config.texts['airdrop_confirmation'], parse_mode='Markdown', reply_markup=airdropkeyboard)
+            bot.reply_to(message, config.texts['airdrop_confirmation'], parse_mode='Markdown',
+                         reply_markup=airdropkeyboard)
             airdrop_wallets.append(message.text)
             airdrop_users.append(message.chat.id)
             try:
                 bot.send_message(config.log_channel, "🎈 *#Airdrop_Entry ({0}):*\n"
                                                      " • User: [{1}](tg://user?id={2}) (#id{2})\n"
                                                      " • Address: [{3}](https://etherscan.io/address/{3})\n"
-                                                     " • Time: `{4} UTC`".format(len(airdrop_users), bot.get_chat(message.chat.id).first_name, message.chat.id, message.text, strftime("%Y-%m-%d %H:%M:%S", gmtime())),
-                                                                    parse_mode='Markdown', disable_web_page_preview=True)
+                                                     " • Time: `{4} UTC`".format(len(airdrop_users), bot.get_chat(
+                    message.chat.id).first_name, message.chat.id, message.text, strftime("%Y-%m-%d %H:%M:%S",
+                                                                                         gmtime())),
+                                 parse_mode='Markdown', disable_web_page_preview=True)
             except:
                 pass
         else:
-            msg = bot.reply_to(message, '❌ Invalid $ETH address. Try again:', parse_mode='Markdown', reply_markup=cancel_button()) 
+            msg = bot.reply_to(message, '❌ Invalid $ETH address. Try again:', parse_mode='Markdown',
+                               reply_markup=cancel_button())
             bot.register_next_step_handler(msg, address_check)
+
 
 @bot.message_handler(func=lambda message: message.chat.id in config.admins, commands=['airdroplist'])
 def handle_text(message):
@@ -149,7 +179,8 @@ def handle_text(message):
         with BytesIO(str.encode(airdrop)) as output:
             output.name = "AIRDROP.txt"
             bot.send_document(message.chat.id, output, caption="Here's the list with all airdrop addresses.")
-            return    
+            return
+
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call):
@@ -161,7 +192,8 @@ def callback_query(call):
             bot.send_message(call.message.chat.id, '✅ Operation canceled.', reply_markup=defaultkeyboard)
         bot.clear_step_handler_by_chat_id(chat_id=call.message.chat.id)
 
-airdrop_users   = get_airdrop_users()
+
+airdrop_users = get_airdrop_users()
 airdrop_wallets = get_airdrop_wallets()
 
 bot.enable_save_next_step_handlers(delay=2)
