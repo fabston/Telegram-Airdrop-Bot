@@ -27,6 +27,18 @@ def get_connection():
     return connection
 
 
+def create_tables():
+    connection = get_connection()
+    with connection.cursor() as cursor:
+        table_name = "users"
+        try:
+            cursor.execute(
+                "	CREATE TABLE `" + table_name + "` ( `user_id` int(12) DEFAULT NULL,  `address` varchar(42) DEFAULT NULL )")
+            return create_tables
+        except Exception as e:
+            print(e)
+
+
 def get_airdrop_wallets():
     connection = get_connection()
     with connection.cursor() as cursor:
@@ -193,10 +205,12 @@ def callback_query(call):
         bot.clear_step_handler_by_chat_id(chat_id=call.message.chat.id)
 
 
+create_db_tables = create_tables()
 airdrop_users = get_airdrop_users()
 airdrop_wallets = get_airdrop_wallets()
 
 bot.enable_save_next_step_handlers(delay=2)
 bot.load_next_step_handlers()
 
+create_db_tables
 bot.polling()
