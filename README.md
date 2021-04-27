@@ -57,4 +57,4 @@ The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, B
 
 ## How can I help?
 All kinds of contributions are welcome!
-The most basic way to show your support is to `⭐️star` the project, or to raise [`🐞issues`](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new).
+The most basic way to show your support is to `⭐️star` the project, or to raise [`🐞issues`](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new). You can also support this project by becoming a [sponsor on GitHub](https://github.com/sponsors/fabston) to ensure this journey continues indefinitely! 🚀
