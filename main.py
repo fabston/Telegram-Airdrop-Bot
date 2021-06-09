@@ -87,19 +87,19 @@ def handle_text(message):
             cursor.execute(sql, message.chat.id)
         if message.chat.id in airdrop_users:
             bot.send_message(message.chat.id, config.texts['start_2'].format(
-                message.from_user.first_name) + "[» Source Code](https://github.com/vsnz/Telegram-Airdrop-Bot).",
+                message.from_user.first_name) + "[» Source Code](https://github.com/fabston/Telegram-Airdrop-Bot).",
                              parse_mode='Markdown', disable_web_page_preview=True, reply_markup=airdropkeyboard)
         elif not config.airdrop_live:
             bot.send_message(message.chat.id, config.texts[
-                'airdrop_start'] + "[» Source Code](https://github.com/vsnz/Telegram-Airdrop-Bot).",
+                'airdrop_start'] + "[» Source Code](https://github.com/fabston/Telegram-Airdrop-Bot).",
                              parse_mode='Markdown', disable_web_page_preview=True)
         elif len(airdrop_users) >= config.airdrop_cap:
             bot.send_message(message.chat.id, config.texts[
-                'airdrop_max_cap'] + "[» Source Code](https://github.com/vsnz/Telegram-Airdrop-Bot).",
+                'airdrop_max_cap'] + "[» Source Code](https://github.com/fabston/Telegram-Airdrop-Bot).",
                              parse_mode='Markdown', disable_web_page_preview=True)
         else:
             bot.send_message(message.chat.id, config.texts['start_1'].format(
-                message.from_user.first_name) + "[» Source Code](https://github.com/vsnz/Telegram-Airdrop-Bot).",
+                message.from_user.first_name) + "[» Source Code](https://github.com/fabston/Telegram-Airdrop-Bot).",
                              parse_mode='Markdown', disable_web_page_preview=True, reply_markup=defaultkeyboard)
 
 
