@@ -28,4 +28,5 @@ texts = {
     'airdrop_max_cap': 'ℹ️ The airdrop reached its max cap.',
     'airdrop_walletused': '⚠️ That address has already been used. Use a different one.',
     'airdrop_confirmation': '✅ Your address has been added to airdrop list.',
+    'airdrop_wallet_update': '✅ Your address has been updated.',
 }
