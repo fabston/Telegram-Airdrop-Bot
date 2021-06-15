@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/fabston/Telegram-Airdrop-Bot" target="_blank"><img src="https://i.imgur.com/nYqDUX0.png"></a></p>
+<p align="center"><a href="https://github.com/fabston/Telegram-Airdrop-Bot" target="_blank"><img src="https://raw.githubusercontent.com/fabston/Telegram-Airdrop-Bot/master/assets/logo.png"></a></p>
 
 <p align="center">
     <a href="https://www.python.org/downloads/release/python-380/"><img src="https://img.shields.io/badge/python-3.8-blue.svg?style=plastic" alt="Python version"></a>
@@ -35,7 +35,7 @@ The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, B
 - Enable / disable the airdrop
 - Admins can export the airdrop list by command (`/airdroplist`)
 
-> 💡 Got a feature idea? Open an [issue](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new) and I might implement it.
+> 💡 Got a feature idea? Open an [issue](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new?assignees=&labels=&template=feature-request---.md) and I might implement it.
 
 
 ## Installation
@@ -57,5 +57,10 @@ The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, B
 ![Telegram Airdrop Bot](https://i.imgur.com/00kB4AI.jpg)
 
 ## How can I help?
-All kinds of contributions are welcome!
-The most basic way to show your support is to `⭐️star` the project, or to raise [`🐞issues`](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new). You can also support this project by becoming a [sponsor on GitHub](https://github.com/sponsors/fabston) to ensure this journey continues indefinitely! 🚀
+All kinds of contributions are welcome 🙌! The most basic way to show your support is to `⭐️ star` the project, or raise [`🐞 issues`](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new/choose). You can also support this project by becoming a [sponsor on GitHub](https://github.com/sponsors/fabston) to ensure this journey continues indefinitely! 🚀
+
+***
+
+<p align="center">
+    <a href="https://www.buymeacoffee.com/fabston"><img alt="Buy Me A Coffee" title="☕️" src="https://raw.githubusercontent.com/fabston/Telegram-Airdrop-Bot/master/assets/bmac.png" width=200px></a>
+</p>
