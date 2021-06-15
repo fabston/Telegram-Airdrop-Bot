@@ -1,3 +1,4 @@
 pymysql
 pyTelegramBotAPI
-eth-utils
+eth-hash[pycryptodome]
+cryptography

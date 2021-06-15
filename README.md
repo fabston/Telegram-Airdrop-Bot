@@ -30,6 +30,7 @@ The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, B
 - Check if a correct ERC-20 address has been provided
 - Set a max cap
 - Each wallet address can only be submitted once
+- Users can change their wallet address after submission  
 - Receive detailed notifications for new submissions
 - Enable / disable the airdrop
 - Admins can export the airdrop list by command (`/airdroplist`)
@@ -38,11 +39,11 @@ The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, B
 
 
 ## Installation
-> ⚠️ Best to run the bot on a VPS. I can recommend [Hetzner](https://fabston/hetzner).
+> ⚠️ Best to run the bot on a VPS. I can recommend [Hetzner](https://fabston.dev/hetzner).
 1. Log into MySQL (`sudo mysql`) and create a dedicated database and user with the following commands:
    1. `CREATE DATABASE TelegramAirdropBot;`
-   1. `CREATE USER 'abuser'@'localhost' IDENTIFIED BY 'your-password';`
-   1. `GRANT ALL PRIVILEGES ON TelegramAirdropBot . * TO 'abuser'@'localhost';`
+   1. `CREATE USER 'AirdropUser'@'localhost' IDENTIFIED BY '<YOUR PASSWORD>';`
+   1. `GRANT ALL PRIVILEGES ON TelegramAirdropBot . * TO 'AirdropUser'@'localhost';`
    1. `exit;`
 1. Clone this repository `git clone https://github.com/fabston/Telegram-Airdrop-Bot.git`
 1. Create your virtual environment `python3 -m venv Telegram-Airdrop-Bot`
