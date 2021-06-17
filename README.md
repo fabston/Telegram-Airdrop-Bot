@@ -25,6 +25,9 @@
 ## About
 The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, BEP-20 etc. tokens.
 
+### Discord Airdrop Bot
+I have also published a similar bot for Discord. You can find it [here](https://github.com/fabston/Discord-Airdrop-Bot).
+
 
 ## Features
 - Check if a correct ERC-20 address has been provided
@@ -35,7 +38,7 @@ The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, B
 - Enable / disable the airdrop
 - Admins can export the airdrop list by command (`/airdroplist`)
 
-> 💡 Got a feature idea? Open an [issue](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new?assignees=&labels=&template=feature-request---.md) and I might implement it.
+> 💡 Got a feature idea? Open an [issue](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new?assignees=&labels=enhancement&template=feature-request---.md) and I might implement it.
 
 
 ## Installation
@@ -54,7 +57,7 @@ The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, B
 
 
 ## Images
-![Telegram Airdrop Bot](https://i.imgur.com/00kB4AI.jpg)
+![Telegram Airdrop Bot](https://github.com/fabston/Telegram-Airdrop-Bot/blob/main/assets/about.jpg?raw=true)
 
 ## How can I help?
 All kinds of contributions are welcome 🙌! The most basic way to show your support is to `⭐️ star` the project, or raise [`🐞 issues`](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new/choose). You can also support this project by becoming a [sponsor on GitHub](https://github.com/sponsors/fabston) to ensure this journey continues indefinitely! 🚀
