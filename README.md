@@ -52,6 +52,10 @@ I have also published a similar bot for Discord. You can find it [here](https://
 1. Create your virtual environment `python3 -m venv Telegram-Airdrop-Bot`
 1. Activate it `source Telegram-Airdrop-Bot/bin/activate && cd Telegram-Airdrop-Bot`
 1. Install all requirements `pip install -r requirements.txt`
+1. The bot runs behind a webhook, so you have to create a SSL cert first:
+   1. `openssl genrsa -out webhook_pkey.pem 2048`
+   1. `openssl req -new -x509 -days 3650 -key webhook_pkey.pem -out webhook_cert.pem`
+      1. _When asked for "Common Name (e.g. server FQDN or YOUR name)" you should reply with your server ip._
 1. Edit and update [`config.py`](https://github.com/fabston/Telegram-Airdrop-Bot/blob/master/config.py)
 1. Run the bot `python main.py`
 
