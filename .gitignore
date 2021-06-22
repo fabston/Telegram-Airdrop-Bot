@@ -123,3 +123,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+test.py
+run_formatting.sh
+run_tests.sh
+requirements-dev.txt

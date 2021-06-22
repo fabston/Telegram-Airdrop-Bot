@@ -1,4 +1,5 @@
 pymysql
 pyTelegramBotAPI
+aiohttp
 eth-hash[pycryptodome]
 cryptography
