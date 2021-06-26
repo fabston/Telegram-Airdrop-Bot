@@ -26,9 +26,9 @@ WEBHOOK_SSL_CERT = "./webhook_cert.pem"  # Path to the ssl certificate
 WEBHOOK_SSL_PRIV = "./webhook_pkey.pem"  # Path to the ssl private key
 
 WEBHOOK_URL_BASE = "https://{}:{}".format(WEBHOOK_HOST, WEBHOOK_PORT)
-WEBHOOK_URL_PATH = "/{}/".format(API_TOKEN)
+WEBHOOK_URL_PATH = "/{}/".format(config.api_token)
 
-bot = telebot.TeleBot(config.token)
+bot = telebot.TeleBot(config.api_token)
 
 app = web.Application()
 
@@ -164,8 +164,8 @@ def handle_text(message):
 
 @bot.message_handler(
     func=lambda message: message.chat.type == "private"
-                         and message.from_user.id not in airdrop_users
-                         and message.text == "🚀 Join Airdrop"
+    and message.from_user.id not in airdrop_users
+    and message.text == "🚀 Join Airdrop"
 )
 def handle_text(message):
     bot.send_chat_action(message.chat.id, "typing")
@@ -197,8 +197,8 @@ def handle_text(message):
 
 @bot.message_handler(
     func=lambda message: message.chat.type == "private"
-                         and message.from_user.id in airdrop_users
-                         and message.text == "💼 View Wallet Address"
+    and message.from_user.id in airdrop_users
+    and message.text == "💼 View Wallet Address"
 )
 def handle_text(message):
     connection = get_connection()

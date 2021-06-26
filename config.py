@@ -11,9 +11,10 @@ airdrop_live = True
 captcha = True
 
 # Telegram
-token = (
+api_token = (
     "<YOUR BOT TOKEN>"  # More: https://core.telegram.org/bots#3-how-do-i-create-a-bot
 )
+
 host = ""  # ip/host where the bot is running
 
 log_channel = 0  # Channel ID. Example: -1001355597767
