@@ -28,6 +28,8 @@ The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, B
 ### Discord Airdrop Bot
 I have also published a similar bot for Discord. You can find it [here](https://github.com/fabston/Discord-Airdrop-Bot).
 
+### 👨‍💻 Custom work
+If you are interested in me hosting and/or customising the bot for you, feel free to reach out to me on Telegram [@fabston](https://t.me/fabston).
 
 ## Features
 - Check if a correct ERC-20 address has been provided
