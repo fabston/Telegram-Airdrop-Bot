@@ -93,7 +93,8 @@ airdropkeyboard.row(types.KeyboardButton("💼 View Wallet Address"))
 
 def cancel_button():
     markup = InlineKeyboardMarkup()
-    markup.add(InlineKeyboardButton("Cancel Operation", callback_data="cancel_input"))
+    markup.add(InlineKeyboardButton(
+        "Cancel Operation", callback_data="cancel_input"))
     return markup
 
 
@@ -281,7 +282,8 @@ def address_check_update(message, old_address):
             msg = bot.reply_to(
                 message, config.texts["airdrop_walletused"], parse_mode="Markdown"
             )
-            bot.register_next_step_handler(msg, address_check_update, old_address)
+            bot.register_next_step_handler(
+                msg, address_check_update, old_address)
         elif eth_utils.is_address(message.text):
             sql = "UPDATE users SET address = %s, address_change_status = address_change_status + 1 WHERE user_id = %s"
             cursor.execute(sql, (message.text, message.chat.id))
@@ -316,7 +318,8 @@ def address_check_update(message, old_address):
                 parse_mode="Markdown",
                 reply_markup=cancel_button(),
             )
-            bot.register_next_step_handler(msg, address_check_update, old_address)
+            bot.register_next_step_handler(
+                msg, address_check_update, old_address)
 
 
 @bot.message_handler(
@@ -416,10 +419,23 @@ bot.set_webhook(
 context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
 context.load_cert_chain(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV)
 
+# Process webhook calls
+
+
+async def handle(request):
+    if request.match_info.get('token') == bot.token:
+        request_body_dict = await request.json()
+        update = telebot.types.Update.de_json(request_body_dict)
+        bot.process_new_updates([update])
+        return web.Response()
+    else:
+        return web.Response(status=403)
+app.router.add_post('/{token}/', handle)
+
 # Start aiohttp server
 web.run_app(
     app,
-    host=WEBHOOK_LISTEN,
+    host='0.0.0.0',
     port=WEBHOOK_PORT,
     ssl_context=context,
 )
