@@ -83,11 +83,11 @@ def get_airdrop_users():
         return tmp
 
 
-defaultkeyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-defaultkeyboard.row(types.KeyboardButton("🚀 Join Airdrop"))
+default_keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+default_keyboard.row(types.KeyboardButton("🚀 Join Airdrop"))
 
-airdropkeyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-airdropkeyboard.row(types.KeyboardButton("💼 View Wallet Address"))
+airdrop_keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+airdrop_keyboard.row(types.KeyboardButton("💼 View Wallet Address"))
 
 
 def cancel_button():
@@ -132,7 +132,7 @@ def handle_text(message):
                 + "[» Source Code](https://github.com/fabston/Telegram-Airdrop-Bot).",
                 parse_mode="Markdown",
                 disable_web_page_preview=True,
-                reply_markup=airdropkeyboard,
+                reply_markup=airdrop_keyboard,
             )
         elif not config.airdrop_live:
             bot.send_message(
@@ -157,7 +157,7 @@ def handle_text(message):
                 + "[» Source Code](https://github.com/fabston/Telegram-Airdrop-Bot).",
                 parse_mode="Markdown",
                 disable_web_page_preview=True,
-                reply_markup=defaultkeyboard,
+                reply_markup=default_keyboard,
             )
 
 
@@ -240,7 +240,7 @@ def address_check(message):
                 message,
                 config.texts["airdrop_confirmation"],
                 parse_mode="Markdown",
-                reply_markup=airdropkeyboard,
+                reply_markup=airdrop_keyboard,
             )
             airdrop_wallets.append(message.text)
             airdrop_users.append(message.chat.id)
@@ -360,13 +360,13 @@ def callback_query(call):
             bot.send_message(
                 call.message.chat.id,
                 "✅ Operation canceled.",
-                reply_markup=airdropkeyboard,
+                reply_markup=airdrop_keyboard,
             )
         else:
             bot.send_message(
                 call.message.chat.id,
                 "✅ Operation canceled.",
-                reply_markup=defaultkeyboard,
+                reply_markup=default_keyboard,
             )
         bot.clear_step_handler_by_chat_id(chat_id=call.message.chat.id)
 

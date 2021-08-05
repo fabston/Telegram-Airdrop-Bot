@@ -29,10 +29,10 @@ The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, B
 I have also published a similar bot for Discord. You can find it [here](https://github.com/fabston/Discord-Airdrop-Bot).
 
 ### 👨‍💻 Custom work
-If you are interested in me hosting and/or customising the bot for you, feel free to reach out to me on Telegram [@fabston](https://t.me/fabston).
+If you are interested in me hosting and/or customising the bot for you, feel free to reach out to me on Telegram [@fabston](https://t.me/fabston). _Please do not DM me if you are having issue setting up the bot. Instead open an [issue](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new/choose)!_
 
 ## Features
-- Check if a correct ERC-20 address has been provided
+- Check if the wallet length is correct
 - Set a max cap
 - Each wallet address can only be submitted once
 - Users can change their wallet address after submission  
@@ -66,7 +66,7 @@ If you are interested in me hosting and/or customising the bot for you, feel fre
 ![Telegram Airdrop Bot](https://github.com/fabston/Telegram-Airdrop-Bot/blob/main/assets/about.jpg?raw=true)
 
 ## How can I help?
-All kinds of contributions are welcome 🙌! The most basic way to show your support is to `⭐️ star` the project, or raise [`🐞 issues`](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new/choose). You can also support this project by becoming a [sponsor on GitHub](https://github.com/sponsors/fabston) to ensure this journey continues indefinitely! 🚀
+All kinds of contributions are welcome 🙌! The most basic way to show your support is to `⭐️ star` the project, or raise [`🐞 issues`](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new/choose). You can also support this project by becoming a [`💚 sponsor on GitHub`](https://github.com/sponsors/fabston) to ensure this journey continues indefinitely! 🚀
 
 ***
 
