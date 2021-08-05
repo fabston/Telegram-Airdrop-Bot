@@ -7,9 +7,6 @@
 # Enable / disable the airdrop
 airdrop_live = True
 
-# Enable / disable captcha
-captcha = True
-
 # Telegram
 api_token = (
     "<YOUR BOT TOKEN>"  # More: https://core.telegram.org/bots#3-how-do-i-create-a-bot

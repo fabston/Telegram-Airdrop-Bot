@@ -4,12 +4,11 @@
 # File Name             : main.py               #
 # --------------------------------------------- #
 
+import re
 import ssl
 from io import BytesIO
-from random import randint
 from time import gmtime, strftime
 
-import eth_utils
 import pymysql
 import telebot
 from aiohttp import web
@@ -93,8 +92,7 @@ airdropkeyboard.row(types.KeyboardButton("💼 View Wallet Address"))
 
 def cancel_button():
     markup = InlineKeyboardMarkup()
-    markup.add(InlineKeyboardButton(
-        "Cancel Operation", callback_data="cancel_input"))
+    markup.add(InlineKeyboardButton("Cancel Operation", callback_data="cancel_input"))
     return markup
 
 
@@ -209,9 +207,7 @@ def handle_text(message):
         data = cursor.fetchall()
         bot.send_message(
             message.chat.id,
-            text="Your tokens will be sent to:\n\n[{0}](https://etherscan.io/address/{0})".format(
-                data[0]["address"]
-            ),
+            text="Your tokens will be sent to:\n\n`{0}`".format(data[0]["address"]),
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=update_wallet_address_button(message),
@@ -235,7 +231,9 @@ def address_check(message):
                 reply_markup=cancel_button(),
             )
             bot.register_next_step_handler(msg, address_check)
-        elif eth_utils.is_address(message.text):
+        elif message.content_type == "text" and re.match(
+            r"^(?=.{42}$).*", message.text
+        ):
             sql = "UPDATE users SET address = %s WHERE user_id = %s"
             cursor.execute(sql, (message.text, message.chat.id))
             bot.reply_to(
@@ -251,7 +249,7 @@ def address_check(message):
                     config.log_channel,
                     "🎈 *#Airdrop_Entry ({0}):*\n"
                     " • User: [{1}](tg://user?id={2}) (#id{2})\n"
-                    " • Address: [{3}](https://etherscan.io/address/{3})\n"
+                    " • Address: `{3}`\n"
                     " • Time: `{4} UTC`".format(
                         len(airdrop_users),
                         bot.get_chat(message.chat.id).first_name,
@@ -282,9 +280,10 @@ def address_check_update(message, old_address):
             msg = bot.reply_to(
                 message, config.texts["airdrop_walletused"], parse_mode="Markdown"
             )
-            bot.register_next_step_handler(
-                msg, address_check_update, old_address)
-        elif eth_utils.is_address(message.text):
+            bot.register_next_step_handler(msg, address_check_update, old_address)
+        elif message.content_type == "text" and re.match(
+            r"^(?=.{42}$).*", message.text
+        ):
             sql = "UPDATE users SET address = %s, address_change_status = address_change_status + 1 WHERE user_id = %s"
             cursor.execute(sql, (message.text, message.chat.id))
             bot.reply_to(
@@ -296,8 +295,8 @@ def address_check_update(message, old_address):
                     config.log_channel,
                     "📝 *#Address_Updated:*\n"
                     " • User: [{1}](tg://user?id={2}) (#id{2})\n"
-                    " • Old Address: [{3}](https://etherscan.io/address/{3})\n"
-                    " • New Address: [{4}](https://etherscan.io/address/{4})\n"
+                    " • Old Address: `{3}`\n"
+                    " • New Address: `{4}`\n"
                     " • Time: `{5} UTC`".format(
                         len(airdrop_wallets),
                         bot.get_chat(message.chat.id).first_name,
@@ -318,8 +317,7 @@ def address_check_update(message, old_address):
                 parse_mode="Markdown",
                 reply_markup=cancel_button(),
             )
-            bot.register_next_step_handler(
-                msg, address_check_update, old_address)
+            bot.register_next_step_handler(msg, address_check_update, old_address)
 
 
 @bot.message_handler(
@@ -420,22 +418,22 @@ context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
 context.load_cert_chain(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV)
 
 # Process webhook calls
-
-
 async def handle(request):
-    if request.match_info.get('token') == bot.token:
+    if request.match_info.get("token") == bot.token:
         request_body_dict = await request.json()
         update = telebot.types.Update.de_json(request_body_dict)
         bot.process_new_updates([update])
         return web.Response()
     else:
         return web.Response(status=403)
-app.router.add_post('/{token}/', handle)
+
+
+app.router.add_post("/{token}/", handle)
 
 # Start aiohttp server
 web.run_app(
     app,
-    host='0.0.0.0',
+    host="0.0.0.0",
     port=WEBHOOK_PORT,
     ssl_context=context,
 )
