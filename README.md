@@ -25,11 +25,17 @@
 ## About
 The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, BEP-20 etc. tokens.
 
-### Discord Airdrop Bot
-I have also published a similar bot for Discord. You can find it [here](https://github.com/fabston/Discord-Airdrop-Bot).
+### 🚀 Pro Version
+The pro version is hosted on my server and includes features such as:
 
-### 👨‍💻 Custom work
-If you are interested in me hosting and/or customising the bot for you, feel free to reach out to me on Telegram [@fabston](https://t.me/fabston). _Please do not DM me if you are having issue setting up the bot. Instead open an [issue](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new/choose)!_
+- Referral System
+- Captcha Support
+- Checks if the user joined a Telegram Group/Channel
+- Export the airdrop list in CSV format
+
+If you are interested message me on Telegram [@fabston](https://t.me/fabston). 
+
+> _Don't DM me if you are having issue setting up the bot, instead open an [issue](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new/choose)!_
 
 ## Features
 - Check if the wallet length is correct
@@ -44,7 +50,7 @@ If you are interested in me hosting and/or customising the bot for you, feel fre
 
 
 ## Installation
-> ⚠️ Best to run the bot on a VPS. I can recommend [Hetzner](https://fabston.dev/hetzner).
+> ⚠️ Best to run the bot on a VPS. I can recommend <a href="https://fabston.dev/hetzner" title="Get €20 in cloud credits">Hetzner</a>'s CX11 VPS for 2.89€/month. [Sign up](https://fabston.dev/hetzner) now and receive **€20 free** credits.
 1. Log into MySQL (`sudo mysql`) and create a dedicated database and user with the following commands:
    1. `CREATE DATABASE TelegramAirdropBot;`
    1. `CREATE USER 'AirdropUser'@'localhost' IDENTIFIED BY '<YOUR PASSWORD>';`
