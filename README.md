@@ -50,7 +50,7 @@ If you are interested message me on Telegram [@fabston](https://t.me/fabston).
 
 
 ## Installation
-> ⚠️ Best to run the bot on a VPS. I can recommend <a href="https://fabston.dev/hetzner" title="Get €20 in cloud credits">Hetzner</a>'s CX11 VPS for 2.89€/month. [Sign up](https://fabston.dev/hetzner) now and receive **€20 free** credits.
+> ⚠️ Best to run the bot on a VPS. I can recommend <a href="https://hetzner.cloud/?ref=tQ1NdT8zbfNY" title="Get €20 in cloud credits">Hetzner</a>'s CX11 VPS for 2.89€/month. [Sign up](https://fabston.dev/hetzner) now and receive **€20 free** credits.
 1. Log into MySQL (`sudo mysql`) and create a dedicated database and user with the following commands:
    1. `CREATE DATABASE TelegramAirdropBot;`
    1. `CREATE USER 'AirdropUser'@'localhost' IDENTIFIED BY '<YOUR PASSWORD>';`
@@ -72,7 +72,7 @@ If you are interested message me on Telegram [@fabston](https://t.me/fabston).
 ![Telegram Airdrop Bot](https://github.com/fabston/Telegram-Airdrop-Bot/blob/main/assets/about.jpg?raw=true)
 
 ## How can I help?
-All kinds of contributions are welcome 🙌! The most basic way to show your support is to `⭐️ star` the project, or raise [`🐞 issues`](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new/choose). You can also support this project by becoming a [`💚 sponsor on GitHub`](https://github.com/sponsors/fabston) to ensure this journey continues indefinitely! 🚀
+All kinds of contributions are welcome 🙌! The most basic way to show your support is to `⭐️ star` the project, or raise [`🐞 issues`](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new/choose).
 
 ***
 
