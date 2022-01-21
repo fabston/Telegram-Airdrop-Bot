@@ -53,7 +53,7 @@ def create_tables():
             cursor.execute(
                 "	CREATE TABLE `"
                 + table_name
-                + "` ( `user_id` int(12) DEFAULT NULL,  `address` varchar(42) DEFAULT NULL,  `address_change_status` tinyint DEFAULT 0,  `captcha` tinyint DEFAULT NULL )"
+                + "` ( `user_id` varchar(15) DEFAULT NULL,  `address` varchar(42) DEFAULT NULL,  `address_change_status` tinyint DEFAULT 0,  `captcha` tinyint DEFAULT NULL )"
             )
             print("Database tables created.")
             return create_tables
