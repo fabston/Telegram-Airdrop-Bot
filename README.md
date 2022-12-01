@@ -25,17 +25,6 @@
 ## About
 The **Telegram Airdrop Bot** 💰 helps you to manage your airdrops on ERC-20, BEP-20 etc. tokens.
 
-### 🚀 Pro Version
-The pro version is hosted on my server and includes features such as:
-
-- Referral System
-- Captcha Support
-- Checks if the user joined a Telegram Group/Channel
-- Export the airdrop list in CSV format
-
-If you are interested message me on Telegram [@fabston](https://t.me/fabston). 
-
-> _Don't DM me if you are having issue setting up the bot, instead open an [issue](https://github.com/fabston/Telegram-Airdrop-Bot/issues/new/choose)!_
 
 ## Features
 - Check if the wallet length is correct
